@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>DashBoard</title>
+        
+        <link rel="icon" type="image/png" href="http://id-dividsoft.rhcloud.com/javax.faces.resource/id.png.xhtml?ln=img" />
+        
+        <meta name="msapplication-TileColor" content="#3372DF" />
+        
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Material Design Lite" />
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
+          type='text/css' />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        
+        <h:outputStylesheet library="css" name="lib/getmdl-select.min.css" />
+        <h:outputStylesheet library="css" name="lib/nv.d3.css" />
+        <h:outputStylesheet library="css" name="application.css" />
+        <h:outputStylesheet library="css" name="login.css" />
+        
+        
+    </h:head>
+    <h:body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-card mdl-shadow--2dp employer-form" action="#">
+                <div class="mdl-card__title">
+                    <h2>Login</h2>
+                    <div class="mdl-card__subtitle">Please use your credentials</div>
+                </div>
+
+                <div class="mdl-card__supporting-text">
+                    <h:form styleClass="form">
+                        <div class="form__article">
+                            <h3>Credentials</h3>
+
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+<!--                                    <input class="mdl-textfield__input" type="text" id="firstName" placeholder="Your username" />
+                                    <label class="mdl-textfield__label" for="username">Username</label>-->
+                                    <h:inputText value="#{login.username}" required="true" requiredMessage="Username please..." styleClass="mdl-textfield__input" id="username" />
+                                    <h:outputLabel for="username" styleClass="mdl-textfield__label" value="Username" />
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <h:inputSecret value="#{login.password}" required="true" requiredMessage="Password please.." styleClass="mdl-textfield__input" id="password" />
+                                    <h:outputLabel for="password" styleClass="mdl-textfield__label" value="Password" />
+                                </div>
+                            </div>
+                        </div>
+                        <h:messages errorClass="red-message" />
+                        <div class="form__action">
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="isInfoReliable">
+                                <input type="checkbox" id="isInfoReliable" class="mdl-checkbox__input" required="true" />
+                                <span class="mdl-checkbox__label">Entered information is reliable</span>
+                            </label>
+
+                            <h:commandLink actionListener="#{login.login()}" id="submit_button" styleClass="mdl-button mdl-js-button mdl-button--raised blue" value="Login" />
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<!-- inject:js -->
+<h:outputScript library="js" name="d3.js" />
+<h:outputScript library="js" name="getmdl-select.min.js" />
+<h:outputScript library="js" name="material.js" />
+<h:outputScript library="js" name="nv.d3.js" />
+<h:outputScript library="js" name="widgets/employer-form/employer-form.js" />
+<h:outputScript library="js" name="widgets/line-chart/line-chart-nvd3.js" />
+<h:outputScript library="js" name="widgets/map/maps.js" />
+<h:outputScript library="js" name="widgets/pie-chart/pie-chart-nvd3.js" />
+<h:outputScript library="js" name="widgets/table/table.js" />
+<h:outputScript library="js" name="widgets/todo/todo.js" />
+<h:outputScript library="js" name="materialize.js" />
+
+    </h:body>
+</html>
+
