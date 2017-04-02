@@ -6,6 +6,7 @@
 
 package com.core.dashboard;
 
+import com.core.hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -15,6 +16,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -70,7 +73,10 @@ public class LoginBean {
             return;
         }
         
-        if (username.equalsIgnoreCase("dummy") && password.equalsIgnoreCase("dummy")) {
+        //Here we must check with the database
+        boolean isUserValid = validateUser(username, password);
+        
+        if (isUserValid) {
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             request.getSession().setAttribute("user", true);
@@ -98,6 +104,24 @@ public class LoginBean {
 
     private void message(FacesMessage.Severity SEVERITY, String message) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(SEVERITY, message, message));
+    }
+
+    private boolean validateUser(String username, String password) {
+        System.out.println("Username entered: " + username + " and password " + password);
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        //This user is a bean for dummy example, we need the user from entities package
+        com.core.entities.User exist = (com.core.entities.User) s.createCriteria(com.core.entities.User.class)
+                .add(Restrictions.eq("username", username))
+                .add(Restrictions.eq("password", password)).uniqueResult();
+                //My error, sorry, all classes must be consistent
+        s.close(); //Always close the session please
+        if (exist != null) {
+            System.out.println("user found, username: " + exist.getUsername());
+        }
+        else{
+            System.out.println("User not found");
+        }
+        return exist != null;
     }
     
     

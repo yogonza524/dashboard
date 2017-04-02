@@ -1,0 +1,13 @@
+.red-message{
+    color:white;
+    list-style: none;
+    display: block;
+    border-radius: 2px;
+    padding: 2px;
+    border: solid 1px grey;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}

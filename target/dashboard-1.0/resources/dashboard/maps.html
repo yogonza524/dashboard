@@ -1,36 +1,60 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>DashBoard</title>
-        
-        <link rel="icon" type="image/png" href="http://id-dividsoft.rhcloud.com/javax.faces.resource/id.png.xhtml?ln=img" />
-        
-        <meta name="msapplication-TileColor" content="#3372DF" />
-        
-        <!-- Add to homescreen for Safari on iOS -->
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="apple-mobile-web-app-title" content="Material Design Lite" />
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
 
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
-          type='text/css' />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        
-        <h:outputStylesheet library="css" name="lib/getmdl-select.min.css" />
-        <h:outputStylesheet library="css" name="lib/nv.d3.css" />
-        <h:outputStylesheet library="css" name="application.css" />
-    </h:head>
-    <h:body>
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="icon" type="image/png" href="images/DB_16х16.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Dashboard Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
+          type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/lib/getmdl-select.min.css">
+    <link rel="stylesheet" href="css/lib/nv.d3.css">
+    <link rel="stylesheet" href="css/application.css">
+    <!-- endinject -->
+
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <div class="mdl-layout-spacer"></div>
@@ -168,9 +192,8 @@
             </ul>
 
             <div class="avatar-dropdown" id="icon">
-                <span>#{home.user.firstName}</span>
-                <img src="http://id-dividsoft.rhcloud.com/javax.faces.resource/id.png.xhtml?ln=img" class="responsive-img" />
-                
+                <span>Luke</span>
+                <img src="images/Icon_header.png">
             </div>
 
             <ul class="mdl-menu mdl-list mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp account-dropdown"
@@ -178,8 +201,8 @@
                 <li class="mdl-list__item mdl-list__item--two-line">
                     <span class="mdl-list__item-primary-content">
                         <span class="material-icons mdl-list__item-avatar"></span>
-                        <span>#{home.user.firstName}</span>
-                        <span class="mdl-list__item-sub-title">#{home.user.email}</span>
+                        <span>Luke</span>
+                        <span class="mdl-list__item-sub-title">Luke@skywalker.com</span>
                     </span>
                 </li>
                 <li class="list__item--border-top"></li>
@@ -242,19 +265,19 @@
     <div class="mdl-layout__drawer">
         <header>darkboard</header>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="index.xhtml">
+            <a class="mdl-navigation__link" href="index.html">
                 <i class="material-icons" role="presentation">dashboard</i>
                 Dashboard
             </a>
-            <a class="mdl-navigation__link" href="forms.xhtml">
+            <a class="mdl-navigation__link" href="forms.html">
                 <i class="material-icons" role="presentation">person</i>
                 Account
             </a>
-            <a class="mdl-navigation__link mdl-navigation__link--current" href="maps.xhtml">
+            <a class="mdl-navigation__link mdl-navigation__link--current" href="maps.html">
                 <i class="material-icons" role="presentation">map</i>
                 Maps
             </a>
-            <a class="mdl-navigation__link" href="ui.xhtml">
+            <a class="mdl-navigation__link" href="ui.html">
                 <i class="material-icons">view_comfy</i>
                 UI Elements
             </a>
@@ -296,18 +319,19 @@
 </div>
 
 <!-- inject:js -->
-<h:outputScript library="js" name="d3.js" />
-<h:outputScript library="js" name="getmdl-select.min.js" />
-<h:outputScript library="js" name="material.js" />
-<h:outputScript library="js" name="nv.d3.js" />
-<h:outputScript library="js" name="widgets/employer-form/employer-form.js" />
-<h:outputScript library="js" name="widgets/line-chart/line-chart-nvd3.js" />
-<h:outputScript library="js" name="widgets/map/maps.js" />
-<h:outputScript library="js" name="widgets/pie-chart/pie-chart-nvd3.js" />
-<h:outputScript library="js" name="widgets/table/table.js" />
-<h:outputScript library="js" name="widgets/todo/todo.js" />
+<script src="js/d3.js"></script>
+<script src="js/getmdl-select.min.js"></script>
+<script src="js/material.js"></script>
+<script src="js/nv.d3.js"></script>
+<script src="js/widgets/employer-form/employer-form.js"></script>
+<script src="js/widgets/line-chart/line-chart-nvd3.js"></script>
+<script src="js/widgets/map/maps.js"></script>
+<script src="js/widgets/pie-chart/pie-chart-nvd3.js"></script>
+<script src="js/widgets/table/table.js"></script>
+<script src="js/widgets/todo/todo.js"></script>
+<!-- endinject -->
 
-
-    </h:body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW0td9v69m95iy5Q2YiMebpIO7ztCnuPU&language=en&callback=initMap" async defer></script>
+</body>
 </html>
 

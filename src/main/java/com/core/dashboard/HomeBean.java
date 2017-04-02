@@ -42,6 +42,10 @@ public class HomeBean implements Serializable{
         this.user = user;
     }
 
+    /**
+     * Dummy user for this video only
+     * @return 
+     */
     private User createUser() {
         User result = new User();
         result.setAboutMe("I'm a Java developer who enjoy helping to people");
